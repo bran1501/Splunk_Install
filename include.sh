@@ -1,9 +1,17 @@
 #header functions for more modularity. Suggestion from bran1501
 
+splunk_url(){
+FILE=splunk.txt
+IFS=";"
+while read -r SPLUNK_ENT SPLUNK_UF; do
+        SPLUNK_ENT_URL="${SPLUNK_ENT}"
+        SPLUNK_UF_URL="${SPLUNK_UF}"
+done <"$FILE"
+}
 
 splunkInstall(){
 
-
+splunk_url
 		if [ $1 = 'UF' ]; then
 
 		printf "\nUniversal Forwarder installation\n"
